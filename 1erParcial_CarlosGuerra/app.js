@@ -20,7 +20,8 @@ const app = new Vue({
             if (this.newTask.trim() !== '') {
                 const newTask = {
                     name: this.newTask,
-                    completed: false
+                    completed: false,
+                    editing:false
                 };
                 this.tasks.push(newTask);
                 this.newTask = '';
