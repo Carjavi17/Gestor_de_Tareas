@@ -33,6 +33,7 @@ const app = new Vue({
         
         toggleTaskStatus(task) {
             task.completed = !task.completed;
+            
             this.filteredPendingTasks = this.tasks.filter(task => !task.completed);
             this.filteredCompletedTasks = this.tasks.filter(task => task.completed);
         },
