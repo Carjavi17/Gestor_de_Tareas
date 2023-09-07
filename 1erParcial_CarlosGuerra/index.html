@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do APP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1><i class="fa-solid fa-list-check"></i> To Do APP</h1>
+        </header>
+        <main>
+            <div class="card">
+                <label for="searchInput">Buscar</label>
+                <input type="text" v-model="searchQuery" id="searchInput" placeholder="Buscar tareas" v-on:input="filterTasks">
+            </div>
+            <div class="card">
+                <label>Tarea</label>
+                <input type="text" v-model="newTask" v-on:keyup.13="addTask">
+                <button class="btn-crear" type="button" v-on:click="addTask">Crear</button>
+            </div>            
+            <div class="card">
+                <h2><i class="fa-regular fa-calendar"></i> Tareas Pendientes</h2>
+                <h4>Cantidad {{ pendingTasks.length }}</h4>
+                <ul>
+                    <li v-for="(task, index) in filteredPendingTasks" :key="index">
+                        <template v-if="!task.editing">
+                            <strong>{{ task.name }}</strong>
+                            <i class="btn-edit fa-solid fa-edit" title="Editar tarea" v-on:click="editTask(task)"></i>
+                        </template>
+                        <template v-else>
+                            <input type="text" v-model="task.name">
+                            <i class="btn-save fa-solid fa-save" title="Guardar tarea" v-on:click="saveTask(task)"></i>
+                        </template>
+                        <i class="btn-update fa-solid fa-circle-check" title="Cambiar estado de la tarea" v-on:click="toggleTaskStatus(task)"></i>
+                        <i class="btn-delete fa-solid fa-trash" title="Eliminar tarea" v-on:click="deleteTask(task)"></i>
+                    </li>
+                </ul>                
+            </div>
+             <div class="card">
+                <h2><i class="fa-regular fa-calendar-check"></i> Tareas Terminadas</h2>
+                <h4>Cantidad {{ completedTasks.length }}</h4>
+                <ul>
+                    <li v-for="(task, index) in filteredCompletedTasks" :key="index">
+                        <strong>{{ task.name }}</strong>
+                        <i class="btn-detalle fa-solid fa-clock-rotate-left" title="Cambiar estado de la tarea" v-on:click="toggleTaskStatus(task)"></i>
+                        <i class="btn-delete fa-solid fa-trash" title="Eliminar tarea" v-on:click="deleteTask(task)"></i>
+                    </li>
+                </ul>
+            </div>
+        </main>
+        <footer>
+            <marquee>ISTIC | Programación III / Realizado Por: Carlos Guerra</marquee>
+            <p></p>
+        </footer>
+    </div>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('fondo.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    margin: 1rem 0;
+}
+header {
+    height: 10vh;
+    background-image: url('footer.gif');
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    min-height: 80vh;
+    width: 70%;
+    margin: 0 auto;
+}
+
+footer {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: 30px;
+    background-image: url('footer.gif');
+    color: aliceblue;
+    padding-right: 2rem;
+}
+
+.card {
+    border-color: blue;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+}
+
+ul {
+    margin: 2rem;
+}
+input {
+    border-color: rgb(116, 116, 116);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+button {
+    background-color: #232323;
+    padding: 5px;
+    color: aliceblue;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #4c4b4b;
+}
+
+
+
+.btn-delete {
+    color: rgb(172, 40, 40);
+    cursor: pointer;
+}
+
+.btn-detalle{
+    color: rgb(46, 66, 180);
+    cursor: pointer;
+}
+
+.btn-crear {
+    color: blue;
+    cursor: pointer;
+}
